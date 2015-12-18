@@ -9,7 +9,6 @@ for i = 1:length(files)
     video = files(i);
     videoObj = VideoReader(['/Users/EJHSU/Desktop/trailers/', video.name]);
     
-    
     % create sub-folder %
     outFolderPath = [videoObj.Path, '/', video.name, '/'];
     outFolderPath = outFolderPath(1:end-5);
@@ -20,7 +19,7 @@ for i = 1:length(files)
     framesN = videoObj.NumberOfFrames;
     
     for framei = 1:framesN
-        frameImage = read(v, framei);
+        frameImage = read(videoObj, framei);
         imwrite(frameImage, [outFolderPath, '/', num2str(framei), '.jpg']);
     end
 
