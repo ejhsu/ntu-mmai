@@ -1,5 +1,7 @@
 % save all frames from mp4 %
 
+clear;
+
 % filter all *.mp4 %
 files = dir(['/Users/EJHSU/Desktop/trailers/', '*.mp4']);
 
@@ -18,7 +20,7 @@ for i = 1:length(files)
     
     framesN = videoObj.NumberOfFrames;
     
-    for framei = 1:framesN
+    for framei = 1:framesN-5
         frameImage = read(videoObj, framei);
         imwrite(frameImage, [outFolderPath, '/', num2str(framei), '.jpg']);
     end
